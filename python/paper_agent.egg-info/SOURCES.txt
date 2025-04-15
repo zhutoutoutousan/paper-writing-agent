@@ -1,0 +1,12 @@
+setup.py
+paper_agent/__init__.py
+paper_agent/__main__.py
+paper_agent.egg-info/PKG-INFO
+paper_agent.egg-info/SOURCES.txt
+paper_agent.egg-info/dependency_links.txt
+paper_agent.egg-info/requires.txt
+paper_agent.egg-info/top_level.txt
+paper_agent/models/__init__.py
+paper_agent/models/content_result.py
+paper_agent/models/paper_metadata.py
+paper_agent/models/research_result.py
