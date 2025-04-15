@@ -1,0 +1,5 @@
+aiohttp
+arxiv
+scholarly
+pydantic
+python-dotenv

@@ -1,0 +1,997 @@
+INFO:__main__:Starting Research Phase
+INFO:__main__:WebCrawler starting web crawling
+INFO:arxiv.arxiv:Requesting 5 results at offset 0
+INFO:arxiv.arxiv:Requesting page of results
+INFO:arxiv.arxiv:Got empty results; stopping generation
+INFO:scholarly:Getting https://scholar.google.com/scholar?hl=en&q=Leading%20AI%20Agents%3A%20From%20Delegation%20to%20Orchestration%20%5B%27AI%20Agents%27%2C%20%27Delegation%27%2C%20%27Orchestration%27%2C%20%27Agent%20Networks%27%5D&as_vis=0&as_sdt=0,33
+INFO:scholarly:Session proxy config is {}
+INFO:__main__:DataCollector analyzing collected data
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+ERROR:__main__:Error in pipeline execution: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-1b47c***********************4013. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+ERROR:__main__:Pipeline execution failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-1b47c***********************4013. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+INFO:paper_agent.agents.base:WebCrawler status updated to: searching
+INFO:paper_agent.agents.web_crawler:WebCrawler starting web crawling
+INFO:arxiv.arxiv:Requesting 5 results at offset 0
+INFO:arxiv.arxiv:Requesting page of results
+INFO:arxiv.arxiv:Got empty results; stopping generation
+INFO:scholarly:Getting https://scholar.google.com/scholar?hl=en&q=Leading%20AI%20Agents%3A%20From%20Delegation%20to%20Orchestration%20First%20%5B%27%27%5D&as_vis=0&as_sdt=0,33
+INFO:scholarly:Session proxy config is {}
+INFO:paper_agent.agents.base:WebCrawler status updated to: completed
+INFO:paper_agent.agents.base:DataCollector status updated to: analyzing
+INFO:paper_agent.agents.data_collection:DataCollector analyzing collected data
+ERROR:paper_agent.gui.main_window:Error in Data Collection phase: invalid character '¡¯' (U+2019) (<string>, line 1)
+INFO:paper_agent.agents.base:WebCrawler status updated to: searching
+INFO:paper_agent.agents.web_crawler:WebCrawler starting web crawling
+INFO:arxiv.arxiv:Requesting 5 results at offset 0
+INFO:arxiv.arxiv:Requesting page of results
+INFO:arxiv.arxiv:Got empty results; stopping generation
+INFO:scholarly:Getting https://scholar.google.com/scholar?hl=en&q=Leading%20AI%20Agents%3A%20From%20Delegation%20to%20Orchestration%20First%20%5B%27%27%5D&as_vis=0&as_sdt=0,33
+INFO:scholarly:Session proxy config is {}
+INFO:paper_agent.agents.base:WebCrawler status updated to: completed
+INFO:paper_agent.agents.base:DataCollector status updated to: analyzing
+INFO:paper_agent.agents.data_collection:DataCollector analyzing collected data
+ERROR:paper_agent.agents.data_collection:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.data_collection:Raw response: ```json
+{
+  "main_topics": [
+    "Human-AI Collaboration",
+    "Task Delegation",
+    "Agent Orchestration",
+    "Principal-Agent Relationships",
+    "Authenticated Delegation"
+  ],
+  "subtopics": [
+    "Delegation between human and AI agents",
+    "AI-to-human task delegation",
+    "Orchestration of multiple agents",
+    "Principal-agent problems in delegation",
+    "Security and authorization in AI delegation"
+  ],
+  "key_concepts": [
+    "Manager delegating between agents",
+    "Analytical approaches to delegation",
+    "Dimensions of AI-to-human delegation",
+    "Authenticated delegation for AI agents",
+    "Outsourcing to AI agents",
+    "Autonomous agents in business and life"
+  ]
+}
+```
+INFO:paper_agent.agents.base:DataCollector status updated to: completed
+INFO:paper_agent.agents.base:ContentGenerator status updated to: generating
+INFO:paper_agent.agents.content_generation:ContentGenerator generating content
+ERROR:paper_agent.agents.content_generation:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.content_generation:Raw response: Since the provided research topics and key concepts are empty, I'll generate a general outline for a research paper titled "Leading AI Agents: From Delegation to Orchestration First" based on common themes in AI leadership and multi-agent systems.  
+
+Here's the JSON array with the detailed outline:  
+
+```json
+[
+  {
+    "section": "Introduction",
+    "subsections": [
+      "Background and Motivation",
+      "The Shift from Delegation to Orchestration in AI Leadership",
+      "Research Objectives",
+      "Paper Structure"
+    ]
+  },
+  {
+    "section": "The Evolution of AI Leadership",
+    "subsections": [
+      "Traditional Delegation Models in AI Systems",
+      "Limitations of Pure Delegation Approaches",
+      "Emergence of Orchestration-First Paradigms",
+      "Key Differences Between Delegation and Orchestration"
+    ]
+  },
+  {
+    "section": "Foundations of AI Orchestration",
+    "subsections": [
+      "Defining Orchestration in Multi-Agent Systems",
+      "Core Principles of Effective AI Orchestration",
+      "Role of Human Oversight in Orchestration",
+      "Case Studies of Successful AI Orchestration"
+    ]
+  },
+  {
+    "section": "Technical Frameworks for Orchestration",
+    "subsections": [
+      "Architectural Models for Orchestrating AI Agents",
+      "Communication Protocols and Coordination Mechanisms",
+      "Dynamic Task Allocation and Adaptive Workflows",
+      "Scalability and Fault Tolerance in Orchestration"
+    ]
+  },
+  {
+    "section": "Challenges and Ethical Considerations",
+    "subsections": [
+      "Trust and Transparency in AI Orchestration",
+      "Bias and Fairness in Multi-Agent Decision Making",
+      "Security Risks in Orchestrated AI Systems",
+      "Regulatory and Compliance Issues"
+    ]
+  },
+  {
+    "section": "Future Directions",
+    "subsections": [
+      "Advances in Autonomous Orchestration",
+      "Integration with Human-AI Collaboration",
+      "Potential Applications in Industry and Research",
+      "Long-Term Societal Impacts"
+    ]
+  },
+  {
+    "section": "Conclusion",
+    "subsections": [
+      "Summary of Key Findings",
+      "Implications for AI Leadership",
+      "Final Thoughts on the Orchestration-First Approach"
+    ]
+  },
+  {
+    "section": "References",
+    "subsections": []
+  }
+]
+```
+
+This outline provides a structured approach to discussing the transition from delegation-based AI leadership to orchestration-first models, covering theoretical, technical, and ethical aspects. If you have specific topics or key concepts to include, let me know, and I can refine the outline accordingly.
+INFO:paper_agent.agents.base:ContentGenerator status updated to: completed
+INFO:paper_agent.agents.base:QualityController status updated to: checking
+INFO:paper_agent.agents.quality_control:QualityController performing quality checks
+INFO:paper_agent.agents.base:QualityController status updated to: completed
+INFO:paper_agent.agents.base:ExpertReviewer status updated to: reviewing
+INFO:paper_agent.agents.expert_review:ExpertReviewer performing expert review
+INFO:paper_agent.agents.base:ExpertReviewer status updated to: completed
+INFO:paper_agent.agents.base:Formatter status updated to: formatting
+INFO:paper_agent.agents.formatting:Formatter formatting document
+INFO:paper_agent.agents.base:Formatter status updated to: completed
+INFO:paper_agent.agents.base:Formatter status updated to: formatting
+INFO:paper_agent.agents.formatting:Formatter formatting document
+INFO:paper_agent.agents.base:Formatter status updated to: completed
+INFO:paper_agent.agents.base:WebCrawler status updated to: searching
+INFO:paper_agent.agents.web_crawler:WebCrawler starting web crawling
+INFO:arxiv.arxiv:Requesting 5 results at offset 0
+INFO:arxiv.arxiv:Requesting page of results
+INFO:arxiv.arxiv:Sleeping for 3.000000 seconds
+INFO:arxiv.arxiv:Requesting page of results
+INFO:arxiv.arxiv:Got empty results; stopping generation
+INFO:scholarly:Getting https://scholar.google.com/scholar?hl=en&q=Leading%20AI%20Agents%3A%20From%20Delegation%20to%20Orchestration%20First%20%20%5B%27%27%5D&as_vis=0&as_sdt=0,33
+INFO:scholarly:Session proxy config is {}
+INFO:paper_agent.agents.base:WebCrawler status updated to: completed
+INFO:paper_agent.agents.base:DataCollector status updated to: analyzing
+INFO:paper_agent.agents.data_collection:DataCollector analyzing collected data
+ERROR:paper_agent.agents.data_collection:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.data_collection:Raw response: ```json
+{
+  "main_topics": [
+    "Human-AI Collaboration",
+    "Task Delegation",
+    "AI Agents",
+    "Principal-Agent Perspective",
+    "Authenticated Delegation",
+    "Multi-Agent Orchestration",
+    "Agentic Artificial Intelligence"
+  ],
+  "subtopics": [
+    "Delegation between human and AI agents",
+    "AI-to-human delegation",
+    "Authenticated delegation for AI agents",
+    "Orchestration of multiple agents",
+    "Autonomous agents in business and life"
+  ],
+  "key_concepts": [
+    "Manager delegating between agents",
+    "Principal-agent problems in AI delegation",
+    "Abuse and harm prevention in AI delegation",
+    "Learning constraints in multi-agent systems",
+    "Autonomous agents orchestrating global responses"
+  ]
+}
+```
+INFO:paper_agent.agents.base:DataCollector status updated to: completed
+INFO:paper_agent.agents.base:ContentGenerator status updated to: generating
+INFO:paper_agent.agents.content_generation:ContentGenerator generating content
+ERROR:paper_agent.agents.content_generation:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.content_generation:Raw response: Since the provided research topics and key concepts are empty, I'll create a general outline based on the title "Leading AI Agents: From Delegation to Orchestration First" that could be adapted for AI management research. Here's a structured JSON outline:
+
+```json
+[
+  {
+    "section": "Introduction",
+    "subsections": [
+      "Background on AI agent leadership paradigms",
+      "The shift from delegation to orchestration",
+      "Research objectives and significance",
+      "Paper structure overview"
+    ]
+  },
+  {
+    "section": "Theoretical Foundations",
+    "subsections": [
+      "Defining AI delegation frameworks",
+      "Principles of AI orchestration",
+      "Comparative analysis: Delegation vs. Orchestration",
+      "Key theoretical models in agent coordination"
+    ]
+  },
+  {
+    "section": "Evolution of AI Leadership Approaches",
+    "subsections": [
+      "Historical perspective: Task delegation models",
+      "Limitations of pure delegation systems",
+      "Emergence of orchestration-first paradigms",
+      "Case studies of transitional implementations"
+    ]
+  },
+  {
+    "section": "Orchestration-First Framework",
+    "subsections": [
+      "Core components of AI orchestration",
+      "Architectural requirements",
+      "Dynamic role assignment mechanisms",
+      "Feedback loops and adaptive learning"
+    ]
+  },
+  {
+    "section": "Implementation Challenges",
+    "subsections": [
+      "Technical barriers to orchestration",
+      "Ethical considerations in autonomous coordination",
+      "Scalability and performance tradeoffs",
+      "Human-AI collaboration aspects"
+    ]
+  },
+  {
+    "section": "Evaluation Metrics",
+    "subsections": [
+      "Measuring orchestration effectiveness",
+      "Comparative performance benchmarks",
+      "Resilience and fault tolerance metrics",
+      "Long-term adaptability indicators"
+    ]
+  },
+  {
+    "section": "Future Directions",
+    "subsections": [
+      "Potential advancements in orchestration algorithms",
+      "Cross-domain application opportunities",
+      "Integration with emerging AI paradigms",
+      "Roadmap for orchestration-first adoption"
+    ]
+  },
+  {
+    "section": "Conclusion",
+    "subsections": [
+      "Summary of key findings",
+      "Implications for AI system design",
+      "Final recommendations",
+      "Open research questions"
+    ]
+  }
+]
+```
+
+This outline provides a comprehensive structure for examining the transition from delegation-based to orchestration-first approaches in managing AI agent systems. You may want to customize it with specific topics or concepts from your actual research focus.
+INFO:paper_agent.agents.base:ContentGenerator status updated to: completed
+INFO:paper_agent.agents.base:QualityController status updated to: checking
+INFO:paper_agent.agents.quality_control:QualityController performing quality checks
+INFO:paper_agent.agents.base:QualityController status updated to: completed
+INFO:paper_agent.agents.base:ExpertReviewer status updated to: reviewing
+INFO:paper_agent.agents.expert_review:ExpertReviewer performing expert review
+INFO:paper_agent.agents.base:ExpertReviewer status updated to: completed
+INFO:paper_agent.agents.base:Formatter status updated to: formatting
+INFO:paper_agent.agents.formatting:Formatter formatting document
+INFO:paper_agent.agents.base:Formatter status updated to: completed
+INFO:paper_agent.agents.base:WebCrawler status updated to: searching
+INFO:paper_agent.agents.web_crawler:WebCrawler starting web crawling
+INFO:arxiv.arxiv:Requesting 5 results at offset 0
+INFO:arxiv.arxiv:Requesting page of results
+INFO:arxiv.arxiv:Got empty results; stopping generation
+INFO:scholarly:Getting https://scholar.google.com/scholar?hl=en&q=Leading%20AI%20Agents%3A%20From%20Delegation%20to%20Orchestration%20First%20%20%5B%27%27%5D&as_vis=0&as_sdt=0,33
+INFO:scholarly:Session proxy config is {}
+INFO:paper_agent.agents.base:WebCrawler status updated to: completed
+INFO:paper_agent.agents.base:DataCollector status updated to: analyzing
+INFO:paper_agent.agents.data_collection:DataCollector analyzing collected data
+ERROR:paper_agent.agents.data_collection:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.data_collection:Raw response: ```json
+{
+  "main_topics": [
+    "Human-AI Collaboration",
+    "Task Delegation",
+    "AI Agents",
+    "Principal-Agent Perspective",
+    "Authenticated Delegation",
+    "Multi-Agent Orchestration",
+    "Agentic Artificial Intelligence"
+  ],
+  "subtopics": [
+    "Delegation between human and AI agents",
+    "AI-to-human delegation",
+    "Authenticated delegation for AI agents",
+    "Orchestration of multiple agents",
+    "Autonomous agents in business and life"
+  ],
+  "key_concepts": [
+    "Delegation",
+    "Principal-Agent Problems (PAPs)",
+    "Authenticated delegation",
+    "Multi-agent systems",
+    "Autonomous AI agents",
+    "Human-AI interaction",
+    "Orchestration",
+    "Agentic AI",
+    "Task outsourcing"
+  ]
+}
+```
+INFO:paper_agent.agents.base:DataCollector status updated to: completed
+INFO:paper_agent.agents.base:ContentGenerator status updated to: generating
+INFO:paper_agent.agents.content_generation:ContentGenerator generating content
+ERROR:paper_agent.agents.content_generation:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.content_generation:Raw response: Since the provided research topics and key concepts are empty, I'll generate a general outline based on the title "Leading AI Agents: From Delegation to Orchestration First." This outline assumes the paper explores the evolution of managing AI agents, shifting from simple task delegation to more complex orchestration strategies.
+
+```json
+[
+  {
+    "section": "Introduction",
+    "subsections": [
+      "Background and Motivation",
+      "Research Objectives",
+      "Scope and Contributions",
+      "Paper Structure"
+    ]
+  },
+  {
+    "section": "The Evolution of AI Agent Management",
+    "subsections": [
+      "Early Approaches: Task Delegation",
+      "Limitations of Delegation-Based Systems",
+      "The Need for Orchestration",
+      "Key Differences Between Delegation and Orchestration"
+    ]
+  },
+  {
+    "section": "Foundations of AI Agent Orchestration",
+    "subsections": [
+      "Defining Orchestration in AI Systems",
+      "Core Principles of Effective Orchestration",
+      "Architectural Considerations",
+      "Role of Human Oversight in Orchestration"
+    ]
+  },
+  {
+    "section": "Technologies Enabling Orchestration-First Approaches",
+    "subsections": [
+      "Multi-Agent Systems",
+      "Communication Protocols for AI Agents",
+      "Decision-Making Frameworks",
+      "Learning and Adaptation Mechanisms"
+    ]
+  },
+  {
+    "section": "Challenges and Considerations",
+    "subsections": [
+      "Scalability Issues",
+      "Security and Privacy Concerns",
+      "Ethical Implications",
+      "Performance Measurement and Optimization"
+    ]
+  },
+  {
+    "section": "Case Studies and Applications",
+    "subsections": [
+      "Industry Implementations",
+      "Research Prototypes",
+      "Lessons Learned from Real-World Deployments",
+      "Comparative Analysis of Approaches"
+    ]
+  },
+  {
+    "section": "Future Directions",
+    "subsections": [
+      "Emerging Trends in AI Orchestration",
+      "Potential Research Areas",
+      "Long-Term Implications for AI Development",
+      "Vision for Autonomous Orchestration Systems"
+    ]
+  },
+  {
+    "section": "Conclusion",
+    "subsections": [
+      "Summary of Key Findings",
+      "Final Recommendations",
+      "Closing Remarks"
+    ]
+  }
+]
+``` 
+
+This outline provides a comprehensive structure for a research paper on the transition from delegation to orchestration in managing AI agents. Each section builds upon the previous one to present a complete narrative about this important shift in AI system design.
+INFO:paper_agent.agents.base:ContentGenerator status updated to: completed
+INFO:paper_agent.agents.base:WebCrawler status updated to: searching
+INFO:paper_agent.agents.web_crawler:WebCrawler starting web crawling
+INFO:arxiv.arxiv:Requesting 5 results at offset 0
+INFO:arxiv.arxiv:Requesting page of results
+INFO:arxiv.arxiv:Got empty results; stopping generation
+INFO:scholarly:Getting https://scholar.google.com/scholar?hl=en&q=Leading%20AI%20Agents%3A%20From%20Delegation%20to%20Orchestration%20First%20%5B%27%27%5D&as_vis=0&as_sdt=0,33
+INFO:scholarly:Session proxy config is {}
+INFO:paper_agent.agents.base:WebCrawler status updated to: completed
+INFO:paper_agent.agents.base:DataCollector status updated to: analyzing
+INFO:paper_agent.agents.data_collection:DataCollector analyzing collected data
+ERROR:paper_agent.agents.data_collection:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.data_collection:Raw response: ```json
+{
+  "main_topics": [
+    "Human-AI Collaboration",
+    "Task Delegation",
+    "AI Agents",
+    "Principal-Agent Relationships",
+    "Orchestration of Multiple Agents"
+  ],
+  "subtopics": [
+    "Delegation between human and AI agents",
+    "AI-to-human delegation",
+    "Authenticated delegation for AI agents",
+    "Outsourcing to AI agents",
+    "Autonomous AI agents in business and life"
+  ],
+  "key_concepts": [
+    "Manager delegating between agents",
+    "Principal-agent perspective",
+    "Authenticated delegation",
+    "Orchestrating multiple agents",
+    "Agentic Artificial Intelligence"
+  ]
+}
+```
+INFO:paper_agent.agents.base:DataCollector status updated to: completed
+INFO:paper_agent.agents.base:ContentGenerator status updated to: generating
+INFO:paper_agent.agents.content_generation:ContentGenerator generating content
+ERROR:paper_agent.agents.content_generation:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.content_generation:Raw response: Since no specific topics or key concepts were provided for the research paper titled *"Leading AI Agents: From Delegation to Orchestration First,"* I will outline a general structure based on the title's implied themes: AI delegation, orchestration, and leadership in AI agent management.  
+
+Here is a detailed outline in JSON format:  
+
+```json
+[
+  {
+    "section": "Introduction",
+    "subsections": [
+      "Background and Context of AI Leadership",
+      "From Delegation to Orchestration: Evolution of AI Management",
+      "Research Objectives and Scope",
+      "Paper Structure"
+    ]
+  },
+  {
+    "section": "Theoretical Foundations",
+    "subsections": [
+      "Defining AI Delegation: Traditional Approaches",
+      "Orchestration in AI Systems: A Paradigm Shift",
+      "Key Differences Between Delegation and Orchestration",
+      "Relevant Frameworks in Multi-Agent Systems"
+    ]
+  },
+  {
+    "section": "Challenges in AI Delegation",
+    "subsections": [
+      "Limitations of Static Task Assignment",
+      "Scalability Issues in Hierarchical AI Systems",
+      "Lack of Adaptability in Dynamic Environments",
+      "Case Studies of Delegation Failures"
+    ]
+  },
+  {
+    "section": "Orchestration-First Approach",
+    "subsections": [
+      "Principles of AI Orchestration",
+      "Dynamic Task Allocation and Coordination",
+      "Role of Learning and Adaptation in Orchestration",
+      "Benefits Over Traditional Delegation Models"
+    ]
+  },
+  {
+    "section": "Implementation Strategies",
+    "subsections": [
+      "Architectural Models for AI Orchestration",
+      "Technologies Enabling Orchestration (e.g., Reinforcement Learning, Swarm Intelligence)",
+      "Human-in-the-Loop Orchestration",
+      "Real-World Applications and Use Cases"
+    ]
+  },
+  {
+    "section": "Ethical and Governance Considerations",
+    "subsections": [
+      "Accountability in Orchestrated AI Systems",
+      "Bias and Fairness in Dynamic AI Coordination",
+      "Regulatory Implications of Orchestration-First Models",
+      "Balancing Autonomy and Control"
+    ]
+  },
+  {
+    "section": "Future Directions",
+    "subsections": [
+      "Emerging Trends in AI Leadership Models",
+      "Potential of Self-Orchestrating AI Systems",
+      "Interdisciplinary Research Opportunities",
+      "Long-Term Societal Impact"
+    ]
+  },
+  {
+    "section": "Conclusion",
+    "subsections": [
+      "Summary of Key Findings",
+      "Implications for AI Practitioners and Leaders",
+      "Final Thoughts on the Future of AI Orchestration"
+    ]
+  },
+  {
+    "section": "References",
+    "subsections": []
+  }
+]
+```
+
+This outline provides a structured approach to discussing the shift from delegation to orchestration in AI leadership. If you have specific topics or key concepts to include, I can refine it further. Let me know!
+INFO:paper_agent.agents.base:ContentGenerator status updated to: completed
+INFO:paper_agent.agents.base:QualityController status updated to: checking
+INFO:paper_agent.agents.quality_control:QualityController performing quality checks
+ERROR:paper_agent.agents.quality_control:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.quality_control:Raw response: ```json
+{
+  "issues": [
+    "Lack of specificity in 'recent developments' and 'implications'",
+    "No citations provided despite mentioning developments and implications",
+    "Sentence structure is somewhat generic and could be more engaging"
+  ],
+  "suggestions": [
+    "Clarify 'recent developments' with specific examples or timeframes (e.g., 'advances in 2023-2024')",
+    "Add citations to support claims about developments and implications",
+    "Consider a more precise phrasing for 'implications' (e.g., 'implications for workforce dynamics or decision-making processes')",
+    "The opening could be more compelling with a stronger hook or clearer thesis statement"
+  ],
+  "overall_quality": 7
+}
+```
+ERROR:paper_agent.agents.quality_control:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.quality_control:Raw response: ```json
+{
+  "potential_issues": [
+    "The text discusses AI delegation and orchestration without citing relevant sources from the provided citations.",
+    "The phrase 'evolving landscape of AI delegation and orchestration' may be derived from concepts in the citations but lacks direct attribution.",
+    "The implications for human-AI collaboration are a common theme in the citations but are not explicitly referenced."
+  ],
+  "citation_coverage": 0.0,
+  "recommendations": [
+    "Include citations to specific papers when discussing AI delegation and orchestration, such as 'Optimizing delegation between human and AI collaborative agents' or 'When Should We Orchestrate Multiple Agents?'",
+    "Clarify which parts of the text are original insights and which are derived from existing literature.",
+    "Use direct quotations or paraphrased content with proper citations to avoid plagiarism concerns.",
+    "Review the provided citations and integrate them where relevant to improve academic rigor."
+  ]
+}
+```
+ERROR:paper_agent.agents.quality_control:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.quality_control:Raw response: ```json
+{
+  "issues": [
+    "Inconsistent capitalization of 'AI' (sometimes 'ai', sometimes 'AI').",
+    "Incomplete sentences and fragmented points under 'Key Points'.",
+    "Lack of proper punctuation in several places (e.g., missing commas, periods).",
+    "Inconsistent formatting of author names (sometimes initials, sometimes full names).",
+    "Unclear or ambiguous phrasing in some 'Key Points' (e.g., '2 we summarize the main background').",
+    "Missing or unclear citations in the text (e.g., 'Ham In Figure 7').",
+    "Informal language in some places (e.g., 'him in his final days')."
+  ],
+  "suggestions": [
+    "Consistently capitalize 'AI' throughout the text.",
+    "Ensure all sentences are complete and properly punctuated.",
+    "Standardize the formatting of author names (e.g., use initials consistently).",
+    "Clarify ambiguous or fragmented points under 'Key Points'.",
+    "Provide proper citations for references like 'Figure 7'.",
+    "Avoid informal language and maintain a formal, academic tone.",
+    "Use parallel structure for bullet points (e.g., start each with a verb or noun phrase).",
+    "Ensure all citations in the text match the provided 'citations' list."
+  ],
+  "overall_quality": 6
+}
+```
+ERROR:paper_agent.agents.quality_control:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.quality_control:Raw response: ```json
+{
+  "potential_issues": [
+    "The text includes direct phrases from the cited works without clear quotation marks or distinct paraphrasing (e.g., 'First, our inclusion of a manager delegating between agents moving through the same state', 'we first synthesized existing literature on the topic').",
+    "Some sentences appear to be closely derived from the original sources without significant rephrasing or original analysis (e.g., 'First, section 2 builds upon the existing literature to outline why authenticated delegation is important for AI agents').",
+    "The text lacks proper in-text citations for specific ideas or phrases, even though the general topics are referenced in the citations list."
+  ],
+  "citation_coverage": 70,
+  "recommendations": [
+    "Use quotation marks for direct quotes from the cited works and include page numbers or specific section references where applicable.",
+    "Paraphrase the content more thoroughly to avoid close resemblance to the original sources, ensuring the ideas are expressed in your own words.",
+    "Add in-text citations for each specific idea or phrase borrowed from the sources, even if the general topic is cited in the list.",
+    "Review the original sources to ensure all borrowed content is properly attributed and that the text reflects original analysis or synthesis."
+  ]
+}
+```
+ERROR:paper_agent.agents.quality_control:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.quality_control:Raw response: ```json
+{
+  "issues": [
+    "Lack of specificity in 'recent publications' (timeframe or quantity not defined)",
+    "No citations provided despite referencing literature",
+    "Passive voice ('employs') could be revised for conciseness"
+  ],
+  "suggestions": [
+    "Specify the timeframe or number of publications analyzed (e.g., 'publications from 2010-2024')",
+    "Include citations to support the methodology claim",
+    "Consider active voice: 'We conduct a systematic literature review analyzing...'",
+    "Clarify the scope of 'AI delegation and orchestration' if this is the first mention"
+  ],
+  "overall_quality": 7
+}
+```
+ERROR:paper_agent.agents.quality_control:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.quality_control:Raw response: ```json
+{
+  "potential_issues": [
+    "The text 'This study employs a systematic literature review approach, analyzing recent publications on AI delegation and orchestration.' lacks citations, despite the availability of relevant sources in the provided citations list."
+  ],
+  "citation_coverage": 0.0,
+  "recommendations": [
+    "Add citations to support the claim about the systematic literature review approach. For example, cite 'Optimizing delegation between human and ai collaborative agents' or 'When Should We Orchestrate Multiple Agents?' where applicable.",
+    "Clarify which publications were analyzed by referencing specific works from the citations list, such as 'Task delegation from AI to humans: a principal-agent perspective' or 'Authenticated Delegation and Authorized AI Agents'.",
+    "If the text is a general methodology statement, consider citing broader works like 'Agentic Artificial Intelligence: Harnessing AI Agents to Reinvent Business, Work and Life' to establish context."
+  ]
+}
+```
+ERROR:paper_agent.agents.quality_control:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.quality_control:Raw response: ```json
+{
+  "issues": [
+    "Redundant phrasing ('Key findings' and 'Key concepts' are repetitive)",
+    "Incomplete sentence ('Key concepts identified in the research' lacks a verb or continuation)",
+    "No citations provided despite mentioning literature review findings"
+  ],
+  "suggestions": [
+    "Combine the two sentences for conciseness: 'Key findings from the literature review include the following concepts:'",
+    "Add specific concepts or findings to complete the thought",
+    "Include citations to support the claims about literature findings"
+  ],
+  "overall_quality": 5
+}
+```
+ERROR:paper_agent.agents.quality_control:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.quality_control:Raw response: ```json
+{
+  "potential_issues": [
+    "The text 'Key findings from the literature review include:' may be a common phrase, but it lacks citations to support the claim of a literature review.",
+    "The text 'Key concepts identified in the research:' is uncited and could be considered a general statement, but it may require attribution if derived from specific sources."
+  ],
+  "citation_coverage": 0.0,
+  "recommendations": [
+    "Add citations to support the claims made in the text, especially for phrases like 'Key findings from the literature review' and 'Key concepts identified in the research'.",
+    "Use the provided citations (e.g., 'Optimizing delegation between human and AI collaborative agents') to substantiate the statements where applicable.",
+    "Paraphrase or quote directly from the cited sources to ensure proper attribution and avoid plagiarism."
+  ]
+}
+```
+ERROR:paper_agent.agents.quality_control:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.quality_control:Raw response: ```json
+{
+  "issues": [
+    "Lack of specificity in 'several important trends'",
+    "No citations provided despite making a claim",
+    "Sentence could be more concise"
+  ],
+  "suggestions": [
+    "Specify what the 'important trends' are (e.g., 'trends such as X, Y, and Z')",
+    "Add citations to support the claim about research findings",
+    "Consider rewording for conciseness (e.g., 'Research shows key trends in AI delegation and orchestration:')"
+  ],
+  "overall_quality": 6
+}
+```
+ERROR:paper_agent.agents.quality_control:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.quality_control:Raw response: ```json
+{
+  "potential_issues": [
+    "The text 'The research indicates several important trends in AI delegation and orchestration:' does not include any citations, despite the availability of relevant sources."
+  ],
+  "citation_coverage": 0.0,
+  "recommendations": [
+    "Add citations to support the claim about research trends in AI delegation and orchestration.",
+    "Use one or more of the provided citations (e.g., 'Optimizing delegation between human and ai collaborative agents', 'When Should We Orchestrate Multiple Agents?') to substantiate the statement.",
+    "Ensure all claims derived from external sources are properly cited to avoid plagiarism."
+  ]
+}
+```
+ERROR:paper_agent.agents.quality_control:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.quality_control:Raw response: ```json
+{
+  "issues": [
+    "Lack of specificity in 'significant potential' (could be quantified or clarified)",
+    "No citations provided to support the claim",
+    "Vague phrasing ('effective delegation and orchestration' could be more precise)"
+  ],
+  "suggestions": [
+    "Clarify 'significant potential' with data or examples (e.g., 'The findings suggest a 30% improvement in efficiency...')",
+    "Add citations to support the claim about human-AI collaboration",
+    "Define or elaborate on 'effective delegation and orchestration' (e.g., 'through task-specific delegation and dynamic workflow orchestration')",
+    "Consider using more formal academic phrasing (e.g., 'The findings indicate that...')"
+  ],
+  "overall_quality": 7
+}
+```
+ERROR:paper_agent.agents.quality_control:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.quality_control:Raw response: ```json
+{
+  "potential_issues": [
+    "The text may contain ideas or phrases similar to those in the cited works, but no direct citations are provided.",
+    "The phrase 'improved human-AI collaboration through effective delegation and orchestration' could be derived from multiple sources in the citations, but without proper attribution, it may be considered plagiarism."
+  ],
+  "citation_coverage": 0,
+  "recommendations": [
+    "Add direct citations to the sources that discuss 'human-AI collaboration,' 'delegation,' and 'orchestration' to properly attribute the ideas.",
+    "Paraphrase the text more distinctly if the ideas are common knowledge, but still consider citing relevant sources for clarity.",
+    "Review the cited works to ensure the text does not inadvertently copy phrasing or structure without attribution."
+  ]
+}
+```
+INFO:paper_agent.agents.base:QualityController status updated to: completed
+INFO:paper_agent.agents.base:ExpertReviewer status updated to: reviewing
+INFO:paper_agent.agents.expert_review:ExpertReviewer performing expert review
+ERROR:paper_agent.agents.expert_review:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.expert_review:Raw response: ```json
+{
+  "accuracy_issues": [
+    "The content lacks specific technical details about AI delegation and orchestration, making it vague and potentially inaccurate without concrete examples or definitions.",
+    "No citations are provided in the 'Introduction' section to support the claims about the 'evolving landscape of AI delegation and orchestration'.",
+    "The abstract snippets in the 'Literature Review' are incomplete and lack context, which could lead to misinterpretation of the cited works."
+  ],
+  "suggestions": [
+    "Include specific examples or definitions of AI delegation and orchestration to clarify the concepts discussed.",
+    "Add relevant citations from the provided literature to support the claims in the 'Introduction' section.",
+    "Expand the abstract snippets in the 'Literature Review' to provide more context and ensure accurate representation of the cited works.",
+    "Consider integrating key findings or methodologies from the cited papers to strengthen the technical accuracy of the content."
+  ],
+  "confidence_score": 6
+}
+```
+ERROR:paper_agent.agents.expert_review:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.expert_review:Raw response: ```json
+{
+  "accuracy_issues": [
+    "The 'Key Points' for 'Optimizing delegation between human and ai collaborative agents' appear truncated and lack clarity.",
+    "The 'Key Points' for 'Task delegation from AI to humans: a principal-agent perspective' are incomplete and contain unclear references to 'PAPs' without explanation.",
+    "The 'Key Points' for 'Authenticated Delegation and Authorized AI Agents' are fragmented and lack context about 'abuse and harm'.",
+    "The 'Key Points' for 'When Should We Orchestrate Multiple Agents?' reference 'Ham In Figure 7' without explanation or context.",
+    "The 'Key Points' for 'Agentic Artificial Intelligence: Harnessing AI Agents to Reinvent Business, Work and Life' are disjointed and lack coherence."
+  ],
+  "suggestions": [
+    "Provide complete and coherent summaries of the key points from each paper, ensuring clarity and context.",
+    "Explain acronyms like 'PAPs' and references like 'Ham In Figure 7' to improve understanding.",
+    "Ensure that all 'Key Points' are properly extracted and summarized from the original abstracts to avoid fragmentation.",
+    "Consider reorganizing the 'Key Points' to follow a logical flow, such as problem statement, methodology, and findings.",
+    "Add citations or references within the 'Key Points' to link them back to specific sections or claims in the original papers."
+  ],
+  "confidence_score": 6
+}
+```
+INFO:paper_agent.agents.base:WebCrawler status updated to: searching
+INFO:paper_agent.agents.web_crawler:WebCrawler starting web crawling
+INFO:arxiv.arxiv:Requesting 5 results at offset 0
+INFO:arxiv.arxiv:Requesting page of results
+INFO:arxiv.arxiv:Got empty results; stopping generation
+INFO:scholarly:Getting https://scholar.google.com/scholar?hl=en&q=Leading%20AI%20Agents%3A%20From%20Delegation%20to%20Orchestration%20%5B%27%27%5D&as_vis=0&as_sdt=0,33
+INFO:scholarly:Session proxy config is {}
+INFO:paper_agent.agents.base:WebCrawler status updated to: completed
+INFO:paper_agent.agents.base:DataCollector status updated to: analyzing
+INFO:paper_agent.agents.data_collection:DataCollector analyzing collected data
+ERROR:paper_agent.agents.data_collection:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.data_collection:Raw response: ```json
+{
+  "main_topics": [
+    "Human-AI Collaboration",
+    "Delegation Processes",
+    "Multi-Agent Systems",
+    "Authentication and Authorization",
+    "Orchestration in Computing"
+  ],
+  "subtopics": [
+    "Optimizing Delegation",
+    "AI-to-Human Delegation",
+    "Authenticated Delegation",
+    "Principal-Agent Perspective",
+    "Orchestration of Multiple Agents"
+  ],
+  "key_concepts": [
+    "Delegation between human and AI agents",
+    "Authentication protocols for AI agents",
+    "Principal-agent problems in AI delegation",
+    "Orchestration in distributed AI systems",
+    "Device-edge-cloud computing continuum"
+  ]
+}
+```
+INFO:paper_agent.agents.base:DataCollector status updated to: completed
+INFO:paper_agent.agents.base:ContentGenerator status updated to: generating
+INFO:paper_agent.agents.content_generation:ContentGenerator generating content
+ERROR:paper_agent.agents.content_generation:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.content_generation:Raw response: Since no specific topics or key concepts were provided for the research paper, I'll generate a general outline based on the title *"Leading AI Agents: From Delegation to Orchestration"*, covering common themes in AI leadership, delegation, and orchestration.  
+
+Here¡¯s a structured JSON outline:  
+
+```json
+[
+  {
+    "section": "Introduction",
+    "subsections": [
+      "Background and Motivation",
+      "Research Objectives",
+      "Scope and Definitions",
+      "Paper Structure"
+    ]
+  },
+  {
+    "section": "The Evolution of AI Leadership",
+    "subsections": [
+      "From Rule-Based Systems to Autonomous Agents",
+      "The Role of Delegation in Early AI Systems",
+      "Limitations of Pure Delegation Models",
+      "The Shift Toward Orchestration"
+    ]
+  },
+  {
+    "section": "Delegation in AI Systems",
+    "subsections": [
+      "Defining Delegation in AI Contexts",
+      "Case Studies of Delegation-Based AI",
+      "Strengths and Weaknesses of Delegation",
+      "When Delegation Fails: Bottlenecks and Misalignment"
+    ]
+  },
+  {
+    "section": "Orchestration as a Paradigm Shift",
+    "subsections": [
+      "What is AI Orchestration?",
+      "Key Principles of Effective Orchestration",
+      "Multi-Agent Systems and Coordination",
+      "Dynamic Task Allocation and Adaptation"
+    ]
+  },
+  {
+    "section": "Frameworks and Technologies for AI Orchestration",
+    "subsections": [
+      "Architectural Models for Orchestration",
+      "Role of Reinforcement Learning and Meta-Learning",
+      "Human-in-the-Loop Orchestration",
+      "Ethical and Governance Considerations"
+    ]
+  },
+  {
+    "section": "Challenges and Future Directions",
+    "subsections": [
+      "Scalability and Performance Trade-offs",
+      "Trust and Explainability in Orchestrated Systems",
+      "Emerging Trends: Self-Orchestrating AI",
+      "Open Research Questions"
+    ]
+  },
+  {
+    "section": "Conclusion",
+    "subsections": [
+      "Summary of Key Findings",
+      "Implications for AI Leadership",
+      "Final Thoughts and Recommendations"
+    ]
+  },
+  {
+    "section": "References",
+    "subsections": []
+  }
+]
+```
+
+This outline provides a logical flow from foundational concepts (delegation) to advanced orchestration approaches, including challenges and future directions. If you'd like to refine it with specific topics or key concepts, feel free to provide them!
+INFO:paper_agent.agents.base:ContentGenerator status updated to: completed
+INFO:paper_agent.agents.base:Formatter status updated to: formatting
+INFO:paper_agent.agents.formatting:Formatter formatting document
+ERROR:paper_agent.agents.formatting:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.formatting:Raw response: ```json
+{
+    "formatted_content": "This paper explores the evolving landscape of AI delegation and orchestration, examining recent developments and their implications for human-AI collaboration.",
+    "style_compliance": [
+        "Formal and objective tone",
+        "Clear and concise phrasing",
+        "No first-person pronouns",
+        "No informal language"
+    ],
+    "issues": [
+        "No citations provided (IEEE requires proper citation of sources)",
+        "No section headings (IEEE papers typically include structured sections like 'Introduction', 'Methodology', etc.)",
+        "No mathematical notation or technical terms requiring definition (if applicable)"
+    ]
+}
+```
+ERROR:paper_agent.agents.formatting:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.formatting:Raw response: ```json
+{
+  "formatted_content": "Recent research has focused on several key aspects of AI delegation:\n\n1. A. Fuchs, A. Passarella, and M. Conti, \"Optimizing delegation between human and AI collaborative agents,\" 2023. \n   - Key Points: We summarize the main background we exploit in terms of analytical approach, and in Sect. 3 we analyze in more detail the relations and advancements with respect to the state of...\n\n2. T. South, S. Marro, T. Hardjono, and R. Mahari, \"Authenticated Delegation and Authorized AI Agents,\" 2025. \n   - Key Points: Unauthenticated AI agents can lead to abuse and harm, but is often done at the ¡®user-delegation of AI agents using existing authentication and permission protocols to enable AI agents...\n\n3. T. Guggenberger and L. L\xe4mmermann, \"Task delegation from AI to humans: a principal-agent perspective,\" 2023. \n   - Key Points: AI collaboration in delegation processes changes when AI takes over the ownership for delegation, dimensions that are unique in AI-to-human delegation and lead to PAPs there....\n\n4. U. Bhatt, S. Kapoor, M. Upadhyay, and I. Sucholutsky, \"When Should We Orchestrate Multiple Agents?,\" 2025. \n   - Key Points: In Figure 4, we show that orchestration leads to a much broader context, including delegating between human agents (Ham). In Figure 7, we show how the rate of outsourcing to AI agents differs...\n\n5. H. Kokkonen, L. Lov¨¦n, N. H. Motlagh, and A. Kumar, \"Autonomy and intelligence in the computing continuum: Challenges, enablers, and future directions for orchestration,\" 2022. \n   - Key Points: We describe certain major emerging research themes that may affect future distributed AI and orchestration in the device-edge-cloud computing continuum. We adopt the Multi-Agent...\n",
+  "style_compliance": [
+    "Authors listed as 'Initial. Lastname' format",
+    "Article titles in quotation marks",
+    "Key points formatted as bullet points under each reference",
+    "Numerical listing of references",
+    "Proper capitalization and punctuation in titles and key points"
+  ],
+  "issues": [
+    "Incomplete key points (e.g., truncated sentences)",
+    "Some citations lack specific publication details (e.g., conference/journal names)",
+    "Inconsistent formatting of 'AI' (sometimes lowercase, sometimes uppercase)",
+    "Some abbreviations (e.g., 'PAPs') are not defined"
+  ]
+}
+```
+ERROR:paper_agent.agents.formatting:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.formatting:Raw response: ```json
+{
+  "formatted_content": "This study employs a systematic literature review approach, analyzing recent publications on artificial intelligence (AI) delegation and orchestration.",
+  "style_compliance": [
+    "Spelled out 'AI' on first use",
+    "Formal academic tone maintained",
+    "Passive voice avoided"
+  ],
+  "issues": [
+    "No citations provided for literature review claim",
+    "Could specify time frame for 'recent publications'",
+    "Could quantify number of publications analyzed"
+  ]
+}
+```
+ERROR:paper_agent.agents.formatting:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.formatting:Raw response: ```json
+{
+  "formatted_content": "Key findings from the literature review include:\n\nKey concepts identified in the research:",
+  "style_compliance": [
+    "Clear section headings",
+    "Formal academic tone",
+    "No informal language or contractions"
+  ],
+  "issues": [
+    "No citations provided (IEEE requires proper citation of sources)",
+    "Section headings could be more descriptive (e.g., 'Literature Review Findings' instead of 'Key findings')",
+    "Lacks specific details or data from the literature (IEEE prefers concrete findings)"
+  ]
+}
+```
+ERROR:paper_agent.agents.formatting:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.formatting:Raw response: ```json
+{
+  "formatted_content": "The research indicates several important trends in AI delegation and orchestration.",
+  "style_compliance": [
+    "Use of complete sentences",
+    "Clear and concise language",
+    "No citations required as per input"
+  ],
+  "issues": [
+    "No specific IEEE formatting requirements (e.g., section headings, equations, references) were applicable to this short text snippet"
+  ]
+}
+```
+ERROR:paper_agent.agents.formatting:Error parsing JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR:paper_agent.agents.formatting:Raw response: ```json
+{
+  "formatted_content": "The findings suggest significant potential for improved human-AI collaboration through effective delegation and orchestration.",
+  "style_compliance": [
+    "Clear and concise technical writing",
+    "No citations required (empty citations list)",
+    "Neutral and objective tone"
+  ],
+  "issues": [
+    "No specific IEEE formatting applied (e.g., section numbering, equations, or references)",
+    "No IEEE-specific terminology or structural elements"
+  ]
+}
+```
+INFO:paper_agent.agents.base:Formatter status updated to: completed
