@@ -1,0 +1,419 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{listings}
+\lstset{
+    basicstyle=\small\ttfamily,
+    breaklines=true,
+    columns=flexible,
+    frame=single,
+    xleftmargin=0.5cm,
+    xrightmargin=0.5cm
+}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Leading AI Agents: From Delegation to Orchestration}
+
+\author{\IEEEauthorblockN{Hasan Mohammad Noman\textsuperscript{1} and Tian Shao\textsuperscript{2}}
+\IEEEauthorblockA{\textit{Department of Computer Science} \\
+\textit{XU Exponential University of Applied Sciences}\\
+Potsdam, Germany \\
+\textsuperscript{1}h.noman@student.xu-university.de \\
+\textsuperscript{2}t.shao@student.xu-university.de}
+}
+
+\maketitle
+
+\begin{abstract}
+This paper examines the evolution of AI agent management from basic delegation to sophisticated orchestration. We analyze how modern AI systems can be effectively coordinated to achieve complex objectives, drawing insights from recent developments in agentic workflows and multi-agent systems. Our investigation encompasses practical implementations across various domains, including economic research, financial advisory services, AI research replication, and personalized AI systems, where agentic workflows have demonstrated significant potential for enhancing efficiency and reproducibility. We particularly focus on the emerging paradigm of stochastic, dynamic, and fluid autonomy in AI systems, which represents a fundamental shift in our understanding and management of AI agent behavior. The paper also addresses the challenges of deploying AI agents in high-stakes domains where domain expertise and trust are crucial.
+\end{abstract}
+
+\section{Introduction}
+\subsection{Background and Motivation}
+The landscape of AI agent management has evolved significantly in recent years, transitioning from basic task delegation to complex orchestration of multiple specialized agents. This evolution is particularly evident in domains such as economic research, where agentic workflows have demonstrated the potential to transform traditional research methodologies \cite{dawid2024agentic}.
+
+\subsection{Foundations of Modern AI Systems}
+The foundation of modern AI systems can be traced to the Transformer architecture \cite{vaswani2017attention}, which revolutionized natural language processing by introducing self-attention mechanisms. This breakthrough enabled models to process entire sequences simultaneously, rather than sequentially, and to capture long-range dependencies more effectively.
+
+\subsection{The Emergence of Agentic AI}
+A key development in this evolution is the emergence of stochastic, dynamic, and fluid autonomy in AI systems \cite{mukherjee2024stochastic}. Modern agentic AI systems exhibit three distinct characteristics: their steps and outputs vary probabilistically (stochastic), they evolve based on prior interactions (dynamic), and they operate with significant independence within human-defined parameters while adapting to context (fluid).
+
+\section{The Evolution of AI Agent Management}
+\subsection{From Basic Delegation to Task Automation}
+The journey begins with basic delegation, where AI systems were primarily reactive, responding to specific user prompts with predetermined outputs. This early stage was characterized by:
+\begin{itemize}
+\item Single-task execution with limited scope
+\item Minimal context awareness and memory
+\item Rigid rule-based behavior with fixed responses
+\item Minimal autonomy and decision-making
+\item Simple input-output mapping
+\item Limited tool utilization
+\end{itemize}
+
+A key example of this stage is early chatbot systems that could only respond to specific commands with predefined answers. These systems lacked the ability to understand context or maintain conversation state, requiring explicit instructions for each interaction.
+
+\subsection{The Rise of Agentic Capabilities}
+The development of sophisticated AI architectures enabled the transition to more autonomous systems. Key developments included:
+\begin{itemize}
+\item Enhanced reasoning capabilities through chain-of-thought processing
+\item Contextual understanding with memory and state management
+\item Dynamic adaptation to changing conditions
+\item Tool utilization and API integration
+\item Multi-step planning and execution
+\item Error handling and recovery mechanisms
+\end{itemize}
+
+This transition is exemplified by systems like AutoGPT, which demonstrated the ability to break down complex tasks into subtasks, use tools, and maintain context across multiple steps. The introduction of the Transformer architecture \cite{vaswani2017attention} was crucial here, enabling models to process and understand complex relationships in input sequences.
+
+\subsection{Towards Multi-Agent Systems}
+The emergence of multi-agent systems marked a significant step in the evolution, introducing:
+\begin{itemize}
+\item Collaborative problem-solving through agent teams
+\item Distributed decision-making with specialized roles
+\item Coordinated workflows and task allocation
+\item Inter-agent communication and negotiation
+\item Shared knowledge and memory systems
+\item Dynamic team composition and leadership
+\end{itemize}
+
+A notable example is the Agent2Agent (A2A) protocol \cite{google2025a2a}, which enables secure communication and coordination between agents from different platforms. This development represents a crucial step toward true orchestration, where multiple agents can work together effectively while maintaining proper governance and oversight.
+
+\subsection{The Emergence of Enterprise Orchestration}
+The final stage in this evolution is the development of enterprise-grade orchestration platforms, characterized by:
+\begin{itemize}
+\item Unified frameworks for agent management
+\item Scalable architectures for large-scale deployment
+\item Advanced collaboration mechanisms
+\item Comprehensive governance and monitoring
+\item Performance optimization and resource allocation
+\item Integration with existing enterprise systems
+\end{itemize}
+
+Platforms like PwC's agent OS \cite{pwc2025agentos} exemplify this stage, providing a complete ecosystem for building, deploying, and managing AI agents at enterprise scale. These platforms enable organizations to effectively orchestrate multiple agents while maintaining proper oversight and control.
+
+\section{Architectural Foundations of AI Agents}
+\subsection{System Structures}
+\begin{figure}[t]
+\centering
+\includegraphics[width=3in]{figures/agent_architectures}
+\caption{Three primary architectures for multi-agent systems: (a) Equi-Level Structure, (b) Hierarchical Structure, and (c) Nested Structure.}
+\label{fig:architectures}
+\end{figure}
+
+The effectiveness of AI agent systems depends on their structural organization and the nature of agent interactions. Recent research has identified three primary architectures for multi-agent systems \cite{han2024multiagent}, as illustrated in Figure \ref{fig:architectures}.
+
+\subsection{Learning and Coordination Mechanisms}
+The effectiveness of multi-agent systems heavily depends on their ability to learn and coordinate in complex environments. Recent research has identified several key aspects of multi-agent reinforcement learning (MARL) that are crucial for successful agent orchestration \cite{huh2024multiagent}.
+
+\subsection{Governance and Visibility}
+The increasing delegation of tasks to AI agents across commercial, scientific, governmental, and personal domains necessitates robust governance frameworks and visibility mechanisms \cite{chan2024visibility}.
+
+\section{Enterprise AI Agent Systems}
+\subsection{Orchestration Platforms}
+The evolution of AI agent systems has reached a critical juncture with the emergence of enterprise-grade orchestration platforms. These platforms, exemplified by PwC's agent OS \cite{pwc2025agentos}, represent a significant advancement in how organizations can deploy and manage AI agents at scale.
+
+\subsection{Evaluation and Performance}
+\begin{figure}[t]
+\centering
+\includegraphics[width=3in]{figures/evaluation_framework}
+\caption{Multi-dimensional framework for evaluating AI agent performance.}
+\label{fig:evaluation}
+\end{figure}
+
+The effectiveness of AI agents in real-world applications depends not only on their capabilities but also on how their performance is measured and evaluated. Recent research has identified several critical considerations for agent evaluation \cite{kapoor2024agents}, as shown in Figure \ref{fig:evaluation}.
+
+\section{Applications and Case Studies}
+\subsection{High-Stakes Domains}
+The effectiveness of AI agents in complex, high-stakes domains presents unique challenges and opportunities for leadership and orchestration. Recent research in financial advisory services \cite{takayanagi2024generative} highlights several critical aspects of AI agent deployment in such contexts.
+
+\subsection{Research Replication}
+The capabilities of AI agents in research replication provide valuable insights into their potential for autonomous scientific work. Recent developments in this area, exemplified by the PaperBench framework \cite{starace2025paperbench}, demonstrate both the promise and limitations of AI agents in complex research tasks.
+
+\subsection{Personalized Systems}
+The evolution of AI agents has been significantly influenced by advances in personalization techniques, particularly through the integration of Retrieval-Augmented Generation (RAG) frameworks and their extension into agent-based architectures \cite{li2024survey}.
+
+\section{Challenges and Future Directions}
+\subsection{Technical Challenges}
+The development and deployment of AI agents face several technical challenges, including:
+\begin{itemize}
+\item Scalability and performance optimization
+\item Interoperability and standardization
+\item Security and privacy concerns
+\item Robustness and reliability
+\end{itemize}
+
+\subsection{Organizational and Ethical Considerations}
+The widespread adoption of AI agents raises important organizational and ethical considerations:
+\begin{itemize}
+\item Human-AI collaboration and oversight
+\item Accountability and transparency
+\item Bias and fairness
+\item Regulatory compliance
+\end{itemize}
+
+\section{Conclusion}
+The evolution of AI agent management from basic delegation to sophisticated orchestration represents a fundamental shift in how we design and deploy intelligent systems. This paper has examined the architectural foundations, learning mechanisms, governance frameworks, and practical applications of modern AI agent systems. As these systems continue to evolve, it will be crucial to address both technical challenges and organizational considerations to ensure their responsible and effective deployment.
+
+\section{The Evolution of AI Agent Autonomy}
+The transition from delegation to orchestration in AI systems reflects a broader shift in our understanding and management of AI agent behavior. Early AI systems were primarily reactive, responding to specific user prompts with predetermined outputs. In contrast, modern agentic AI systems, such as OpenAI's DeepResearch, can autonomously pursue long-term goals, make decisions, and execute complex workflows without continuous human intervention.
+
+A significant milestone in this evolution is the development of standardized protocols for agent interoperability, exemplified by the Agent2Agent (A2A) protocol \cite{google2025a2a}. This open protocol enables AI agents to communicate, securely exchange information, and coordinate actions across different enterprise platforms and applications. The A2A protocol represents a crucial step toward realizing the full potential of multi-agent systems, allowing agents from different vendors and frameworks to collaborate effectively.
+
+Recent research has identified key architectural patterns that distinguish effective AI agent systems \cite{masterman2024landscape}. These systems typically fall into two main categories: single-agent and multi-agent architectures. Single-agent architectures excel in well-defined tasks requiring focused execution, while multi-agent systems thrive in scenarios requiring collaboration and multiple distinct execution paths. The most successful implementations incorporate clear leadership structures, defined planning phases, and dynamic team compositions that adapt to specific sub-tasks.
+
+This new paradigm of autonomy presents both opportunities and challenges for AI leadership. On one hand, it enables more sophisticated and efficient workflows, as demonstrated in economic research applications \cite{dawid2024agentic}. On the other hand, it requires new approaches to oversight and coordination, as the boundaries between human and machine contributions become increasingly blurred.
+
+\section{Multi-Agent Learning and Coordination}
+The effectiveness of multi-agent systems heavily depends on their ability to learn and coordinate in complex environments. Recent research has identified several key aspects of multi-agent reinforcement learning (MARL) that are crucial for successful agent orchestration \cite{huh2024multiagent}:
+
+\begin{itemize}
+\item \textbf{Learning Paradigms}: MARL systems employ various training schemes, including centralized training with decentralized execution (CTDE), which allows agents to learn from global information while maintaining independent action policies. This approach is particularly effective in enterprise settings where agents need to balance individual autonomy with system-wide coordination.
+\item \textbf{Communication Mechanisms}: Effective agent coordination often relies on sophisticated communication infrastructure, including:
+    \begin{itemize}
+    \item Proxy-based communication for efficient message routing
+    \item Networked communication for distributed information sharing
+    \item Implicit communication through shared environment observations
+    \end{itemize}
+\item \textbf{Credit Assignment}: The challenge of attributing system-wide outcomes to individual agent actions is addressed through:
+    \begin{itemize}
+    \item Difference rewards that measure individual contributions
+    \item Value factorization techniques that decompose global value functions
+    \end{itemize}
+\item \textbf{Social Learning}: Agents can enhance their performance through various social learning mechanisms:
+    \begin{itemize}
+    \item Action advising between agents
+    \item Reward shaping based on peer performance
+    \item Knowledge distillation across agent populations
+    \end{itemize}
+\end{itemize}
+
+These learning and coordination mechanisms face several key challenges:
+
+\begin{itemize}
+\item \textbf{Non-Stationarity}: The learning environment becomes non-stationary as multiple agents learn simultaneously, requiring robust adaptation strategies.
+\item \textbf{Computational Complexity}: The exponential growth of state-action spaces with multiple agents necessitates efficient learning algorithms and approximation techniques.
+\item \textbf{Coordination Challenges}: Agents must overcome issues such as miscoordination, relative overgeneralization, and exploration-exploitation trade-offs in multi-agent settings.
+\end{itemize}
+
+The integration of these learning and coordination mechanisms into enterprise orchestration platforms enables organizations to deploy multi-agent systems that can effectively learn from experience, adapt to changing conditions, and coordinate their actions to achieve complex objectives.
+
+\section{Multi-Agent System Architectures}
+The effectiveness of AI agent systems often depends on their structural organization and the nature of agent interactions. Recent research has identified three primary architectures for multi-agent systems \cite{han2024multiagent}:
+
+\begin{itemize}
+\item \textbf{Equi-Level Structure}: In this architecture, agents operate at the same hierarchical level, each with distinct roles and strategies. This structure is particularly effective for collaborative tasks where collective decision-making and shared responsibilities are crucial. Agents may have aligned or opposing objectives, with the latter case often involving negotiation or debate to reach consensus.
+\item \textbf{Hierarchical Structure}: This architecture features a clear leadership-followership dynamic, with a central agent coordinating the actions of subordinate agents. This structure is prevalent in scenarios requiring coordinated efforts and sequential decision-making, such as in Stackelberg game scenarios where the leader agent provides instructions that follower agents execute.
+\item \textbf{Nested Structure}: Combining elements of both equi-level and hierarchical structures, nested architectures allow for complex organizational patterns where sub-groups of agents may operate under different structural principles while working towards common objectives.
+\end{itemize}
+
+Each architecture presents unique challenges for effective orchestration:
+
+\begin{itemize}
+\item \textbf{Task Allocation}: Optimizing the distribution of tasks to leverage agents' unique skills and specializations while maintaining system efficiency.
+\item \textbf{Reasoning Enhancement}: Facilitating robust reasoning through iterative debates and discussions among agents to improve intermediate results.
+\item \textbf{Context Management}: Handling complex and layered context information, including task-specific contexts, agent-specific contexts, and shared knowledge bases.
+\item \textbf{Memory Management}: Coordinating various types of memory systems that support different aspects of agent interactions and learning.
+\end{itemize}
+
+These structural considerations are particularly relevant in enterprise settings, where the choice of architecture can significantly impact system performance, scalability, and maintainability. The integration of appropriate architectural patterns into enterprise orchestration platforms enables organizations to deploy multi-agent systems that effectively balance autonomy with coordination.
+
+\section{AI Agent Governance and Visibility}
+The increasing delegation of tasks to AI agents across commercial, scientific, governmental, and personal domains necessitates robust governance frameworks and visibility mechanisms \cite{chan2024visibility}. Recent research has identified several critical aspects of AI agent oversight:
+
+\begin{itemize}
+\item \textbf{Agent Identification}: Effective governance requires clear identification of AI agents, including their underlying systems, specific instances, and the actors involved in their creation and operation. This includes tracking agent capabilities, dependencies, and potential red flags.
+\item \textbf{Real-Time Monitoring}: Continuous monitoring of agent activities is crucial for maintaining oversight and ensuring compliance with established parameters. This includes tracking agent goals, tool usage, and impact on human users.
+\item \textbf{Activity Logging}: Comprehensive logging of agent activities at different levels of detail enables accountability and facilitates post-hoc analysis of agent behavior and decision-making processes.
+\item \textbf{Decentralized Oversight}: In distributed deployment scenarios, governance must account for multiple stakeholders, including compute providers, tool and service providers, and end users, each playing a role in ensuring responsible agent operation.
+\end{itemize}
+
+These governance mechanisms are particularly important in enterprise settings, where the scale and complexity of AI agent deployments can create significant risks. The integration of visibility frameworks into enterprise orchestration platforms helps organizations maintain proper oversight while enabling the benefits of agent autonomy.
+
+\section{Evaluating AI Agent Performance}
+The effectiveness of AI agents in real-world applications depends not only on their capabilities but also on how their performance is measured and evaluated. Recent research has identified several critical considerations for agent evaluation \cite{kapoor2024agents}:
+
+\begin{itemize}
+\item \textbf{Cost-Accuracy Tradeoff}: Agent evaluations must account for both accuracy and computational cost. Focusing solely on accuracy can lead to unnecessarily complex and expensive agent architectures. Recent studies have shown that simpler baseline agents can outperform complex state-of-the-art architectures while being significantly more cost-effective.
+\item \textbf{Benchmark Design}: The design of evaluation benchmarks must consider the specific needs of different stakeholders. Model developers and downstream application developers have distinct requirements that should be reflected in benchmark design and evaluation metrics.
+\item \textbf{Overfitting Prevention}: Agent benchmarks must include proper holdout sets to prevent overfitting. Without adequate safeguards, agents may develop shortcuts that perform well on benchmarks but fail in real-world applications.
+\item \textbf{Standardization and Reproducibility}: The lack of standardized evaluation practices has led to reproducibility issues in agent research. Consistent evaluation methodologies are crucial for meaningful comparisons between different agent architectures.
+\end{itemize}
+
+These evaluation considerations are particularly important in enterprise settings, where the cost-effectiveness and reliability of AI agents directly impact business outcomes. The integration of proper evaluation frameworks into enterprise orchestration platforms can help organizations make informed decisions about agent deployment and optimization.
+
+\section{Intelligent Agent Capabilities}
+The effectiveness of AI agents in complex tasks depends on their ability to exhibit intelligent behavior across multiple dimensions. Recent research has identified several key capabilities that distinguish truly intelligent agents \cite{gartner2025intelligent}:
+
+\begin{itemize}
+\item \textbf{Autonomous Decision-Making}: Intelligent agents must be capable of making independent decisions within their defined scope of authority, adapting their behavior based on environmental feedback and changing circumstances.
+\item \textbf{Contextual Understanding}: Effective agents demonstrate sophisticated understanding of their operational context, including user preferences, environmental conditions, and task requirements.
+\item \textbf{Learning and Adaptation}: The ability to learn from interactions and improve performance over time is crucial for long-term effectiveness.
+\item \textbf{Goal-Oriented Behavior}: Intelligent agents maintain focus on achieving specific objectives while navigating complex environments and handling unexpected situations.
+\end{itemize}
+
+These capabilities are particularly important in enterprise settings, where agents must operate within complex organizational structures and adhere to business rules and compliance requirements. The integration of these capabilities into enterprise orchestration platforms has enabled organizations to deploy AI agents that can handle increasingly sophisticated tasks while maintaining proper oversight and control.
+
+\section{Enterprise AI Agent Orchestration}
+The evolution of AI agent systems has reached a critical juncture with the emergence of enterprise-grade orchestration platforms. These platforms, exemplified by PwC's agent OS \cite{pwc2025agentos}, represent a significant advancement in how organizations can deploy and manage AI agents at scale. Unlike traditional approaches that often result in siloed agent systems, modern orchestration platforms provide a unified framework for building, customizing, and managing AI agents across diverse enterprise environments.
+
+Key features of these enterprise orchestration platforms include:
+
+\begin{itemize}
+\item \textbf{Unified Framework}: The ability to seamlessly connect AI agents across different platforms and frameworks, enabling complex, cross-functional workflows that integrate with existing enterprise systems.
+\item \textbf{Scalable Architecture}: Support for both in-house developed agents and third-party integrations, with cloud-agnostic deployment options that span major providers and on-premises environments.
+\item \textbf{Advanced Collaboration}: Real-time learning and coordination between agents, allowing them to work together effectively on complex tasks while maintaining proper governance and compliance.
+\end{itemize}
+
+The impact of these platforms is evident in real-world applications. For instance, in healthcare, AI agent workflows have demonstrated significant improvements in clinical operations, with a 50\% increase in access to actionable insights and a 30\% reduction in administrative burden \cite{pwc2025agentos}. Similarly, in customer service, agent-powered systems have achieved 25\% reductions in call time and 60\% fewer transfers, while improving customer satisfaction.
+
+\section{Key Considerations for Effective Agent Leadership}
+The effectiveness of AI agent systems depends heavily on their ability to reason, plan, and execute tasks through tool calling \cite{masterman2024landscape}. These capabilities form the foundation of modern agent architectures and present unique challenges for leadership and orchestration:
+
+\begin{itemize}
+\item \textbf{Reasoning and Planning}: Effective agents must demonstrate robust problem-solving capabilities, enabling them to handle novel tasks and adapt to changing circumstances. This requires sophisticated reasoning mechanisms that go beyond simple pattern matching.
+\item \textbf{Tool Execution}: The ability to effectively call and utilize tools is crucial for agent success. This includes not only technical proficiency but also strategic decision-making about when and how to use different tools.
+\item \textbf{Architectural Design}: The choice between single-agent and multi-agent architectures has significant implications for system performance. Vertical architectures with clear leadership structures often outperform horizontal architectures in complex, hierarchical tasks.
+\end{itemize}
+
+\section{AI Agents in High-Stakes Domains}
+The effectiveness of AI agents in complex, high-stakes domains presents unique challenges and opportunities for leadership and orchestration. Recent research in financial advisory services \cite{takayanagi2024generative} highlights several critical aspects of AI agent deployment in such contexts:
+
+\begin{itemize}
+\item \textbf{Preference Elicitation}: AI agents must navigate the challenge of understanding user needs in domains where users themselves may be uncertain about their requirements. This requires sophisticated dialogue management and context awareness.
+\item \textbf{Personalization}: Effective orchestration must balance the need for personalized guidance with the risks of inappropriate recommendations, particularly in domains where mistakes can have significant consequences.
+\item \textbf{Trust Building}: The personality and communication style of AI agents can significantly impact user trust and satisfaction, sometimes independently of the actual quality of advice provided.
+\end{itemize}
+
+These findings underscore the importance of careful orchestration in high-stakes domains, where the interaction between human preferences, AI capabilities, and domain-specific constraints must be carefully managed.
+
+\section{AI Agents in Research Replication}
+The capabilities of AI agents in research replication provide valuable insights into their potential for autonomous scientific work. Recent developments in this area, exemplified by the PaperBench framework \cite{starace2025paperbench}, demonstrate both the promise and limitations of AI agents in complex research tasks:
+
+\begin{itemize}
+\item \textbf{Task Decomposition}: Successful research replication requires the ability to break down complex papers into manageable sub-tasks, each with clear evaluation criteria. This hierarchical approach to task management is crucial for effective AI agent orchestration.
+\item \textbf{Iterative Development}: Modern AI agents can engage in long-horizon tasks, making incremental progress through iterative development and refinement of their solutions.
+\item \textbf{Evaluation Frameworks}: The development of sophisticated evaluation rubrics and automated judging systems highlights the importance of clear metrics for assessing AI agent performance in complex domains.
+\end{itemize}
+
+While current AI agents show promising capabilities in research replication, achieving scores around 21\% on complex tasks, they still fall short of human performance (41.4\%). This gap underscores the importance of human oversight and the need for continued development in AI agent capabilities.
+
+\section{Personalization in AI Agent Systems}
+The evolution of AI agents has been significantly influenced by advances in personalization techniques, particularly through the integration of Retrieval-Augmented Generation (RAG) frameworks and their extension into agent-based architectures \cite{li2024survey}. This development has introduced new dimensions to AI agent leadership and orchestration:
+
+\begin{itemize}
+\item \textbf{User Understanding}: Modern AI agents must develop sophisticated capabilities for understanding user profiles, roles, and preferences, enabling them to provide more contextually relevant and personalized interactions.
+\item \textbf{Dynamic Adaptation}: The integration of RAG with agent-based architectures allows for real-time adaptation to user needs, with systems capable of retrieving and incorporating relevant information dynamically.
+\item \textbf{Memory Management}: Effective personalization requires sophisticated memory mechanisms that enable agents to maintain and utilize both short-term and long-term user context.
+\end{itemize}
+
+The transition from RAG to agent-based personalization represents a significant advancement in AI agent capabilities, enabling more nuanced and context-aware interactions. However, this evolution also introduces new challenges in terms of maintaining consistency, ensuring privacy, and managing the complexity of personalized interactions across different domains and contexts.
+
+\begin{thebibliography}{00}
+\bibitem{dawid2024agentic} H. Dawid, P. Harting, H. Wang, Z. Wang, and J. Yi, "Agentic Workflows for Economic Research: Design and Implementation," arXiv preprint arXiv:2504.09736, 2024.
+\bibitem{mukherjee2024stochastic} A. Mukherjee and H. H. Chang, "Stochastic, Dynamic, and Fluid Autonomy in Agentic AI: Implications for Authorship, Inventorship, and Liability," arXiv preprint arXiv:2504.04058, 2024.
+\bibitem{takayanagi2024generative} T. Takayanagi, K. Izumi, J. Sanz-Cruzado, R. McCreadie, and I. Ounis, "Are Generative AI Agents Effective Personalized Financial Advisors?," arXiv preprint arXiv:2504.05862, 2024.
+\bibitem{starace2025paperbench} G. Starace et al., "PaperBench: Evaluating AI's Ability to Replicate AI Research," arXiv preprint arXiv:2504.01848, 2025.
+\bibitem{li2024survey} X. Li et al., "A Survey of Personalization: From RAG to Agent," arXiv preprint arXiv:2504.10147, 2024.
+\bibitem{vaswani2017attention} A. Vaswani et al., "Attention Is All You Need," arXiv preprint arXiv:1706.03762, 2017.
+\bibitem{google2025a2a} Google Cloud, "Announcing the Agent2Agent Protocol (A2A): A New Era of Agent Interoperability," Google Cloud Blog, 2025.
+\bibitem{masterman2024landscape} T. Masterman et al., "The Landscape of Emerging AI Agent Architectures for Reasoning, Planning, and Tool Calling: A Survey," arXiv preprint arXiv:2404.11584, 2024.
+\bibitem{pwc2025agentos} PwC, "PwC launches AI agent operating system to revolutionize AI workflows for enterprises," PwC Press Release, 2025.
+\bibitem{gartner2025intelligent} Gartner, "Intelligent Agent in AI: Key Capabilities and Applications," Gartner Research, 2025.
+\bibitem{kapoor2024agents} S. Kapoor et al., "AI Agents That Matter: Rethinking Evaluation and Benchmarking," arXiv preprint arXiv:2407.01502, 2024.
+\bibitem{chan2024visibility} A. Chan et al., "Visibility into AI Agents: Governance and Oversight Considerations," arXiv preprint arXiv:2401.13138, 2024.
+\bibitem{han2024multiagent} S. Han et al., "LLM Multi-Agent Systems: Challenges and Open Problems," arXiv preprint arXiv:2402.03578, 2024.
+\bibitem{huh2024multiagent} D. Huh and P. Mohapatra, "Multi-agent Reinforcement Learning: A Comprehensive Survey," arXiv preprint arXiv:2312.10256, 2024.
+\end{thebibliography}
+
+\appendix
+\section{AI Prompts Used in Paper Creation}
+This appendix documents the AI prompts and interactions that contributed to the creation of this paper. The prompts were designed to integrate insights from various research papers and technical announcements into a coherent discussion of AI agent leadership and orchestration.
+
+\subsection{Prompt 1: Integration of Agentic Workflows}
+The first prompt focused on incorporating insights from "Agentic Workflows for Economic Research: Design and Implementation" into the paper's framework:
+
+\begin{lstlisting}
+I'll help you incorporate the content from the arXiv paper 
+"Agentic Workflows for Economic Research: Design and 
+Implementation" into your paper "Leading AI Agents: From 
+Delegation to Orchestration". First, let me analyze the 
+content and suggest how to integrate it.
+
+The arXiv paper presents a comprehensive framework for using 
+AI agents in economic research, which aligns well with your 
+paper's focus on AI agent leadership and orchestration. I'll 
+add relevant content and citations to your paper.
+\end{lstlisting}
+
+\subsection{Prompt 2: Integration of Stochastic Autonomy}
+The second prompt focused on incorporating the concept of stochastic, dynamic, and fluid autonomy:
+
+\begin{lstlisting}
+I'll help integrate the content from "Stochastic, Dynamic, 
+and Fluid Autonomy in Agentic AI" into your paper, focusing 
+on the aspects that align with your paper's theme of AI 
+agent leadership and orchestration.
+\end{lstlisting}
+
+\subsection{Prompt 3: Integration of Financial Advisory Research}
+The third prompt focused on incorporating insights from financial advisory applications:
+
+\begin{lstlisting}
+I'll help integrate the insights from "Are Generative AI 
+Agents Effective Personalized Financial Advisors?" into your 
+paper, focusing on how it relates to AI agent leadership 
+and orchestration in complex domains.
+\end{lstlisting}
+
+\subsection{Prompt 4: Integration of Research Replication}
+The fourth prompt focused on incorporating insights about AI agents in research replication:
+
+\begin{lstlisting}
+I'll help integrate the insights from "PaperBench: 
+Evaluating AI's Ability to Replicate AI Research" into your 
+paper, focusing on how it relates to AI agent leadership 
+and orchestration in research contexts.
+\end{lstlisting}
+
+\subsection{Prompt 5: Integration of Personalization Framework}
+The fifth prompt focused on incorporating insights about personalization in AI systems:
+
+\begin{lstlisting}
+I'll help integrate the insights from "A Survey of 
+Personalization: From RAG to Agent" into your paper, 
+focusing on how it relates to AI agent leadership and 
+orchestration in personalized contexts.
+\end{lstlisting}
+
+\subsection{Prompt 6: Integration of Transformer Architecture}
+The sixth prompt focused on incorporating foundational insights about the Transformer architecture:
+
+\begin{lstlisting}
+I'll help integrate the insights from "Attention Is All 
+You Need" into your paper, focusing on how it relates to 
+the foundational architecture of modern AI systems and 
+their evolution towards agentic capabilities.
+\end{lstlisting}
+
+\subsection{Prompt 7: Integration of A2A Protocol}
+The final prompt focused on incorporating insights about the Agent2Agent protocol:
+
+\begin{lstlisting}
+I'll help integrate the insights from the A2A (Agent2Agent) 
+protocol announcement into your paper, focusing on how it 
+represents a significant advancement in AI agent 
+interoperability and collaboration.
+\end{lstlisting}
+
+These prompts were designed to maintain a consistent focus on AI agent leadership and orchestration while incorporating diverse perspectives from recent research and technical developments. Each prompt was followed by specific instructions for integrating the content into the paper's structure and maintaining proper academic formatting and citations.
+
+\end{document}
+

@@ -96,17 +96,29 @@ body {
 /* Scholarly Animations */
 @keyframes float {
   0% {
-    transform: translateY(0px);
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-3px);
   }
   100% {
-    transform: translateY(0px);
+    transform: translateY(0);
   }
 }
 
 @keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes flow {
   0% {
     background-position: 0% 50%;
   }
@@ -125,6 +137,13 @@ body {
 .animate-gradient {
   background-size: 200% 200%;
   animation: gradient 8s ease infinite;
+}
+
+.edge-flow {
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, #3B82F6, #60A5FA);
+  background-position: 0% 50%;
+  animation: flow 2s linear infinite;
 }
 
 /* Scholarly Effects */
@@ -185,4 +204,94 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-600;
+}
+
+/* Edge animations */
+.edge-container {
+  position: absolute;
+  pointer-events: none;
+}
+
+.water-flow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary) / 0.1),
+    hsl(var(--primary) / 0.2),
+    hsl(var(--primary) / 0.1)
+  );
+  border-radius: 20px;
+  animation: water-flow-pulse 2s ease-in-out infinite;
+  overflow: hidden;
+}
+
+.water-flow.creating {
+  animation: water-flow-pulse 0.5s ease-in-out infinite;
+}
+
+.water-flow.near {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary) / 0.2),
+    hsl(var(--primary) / 0.3),
+    hsl(var(--primary) / 0.2)
+  );
+}
+
+.water-drops {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.water-drop {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: hsl(var(--primary));
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: water-drop-flow var(--duration) linear infinite;
+  animation-delay: var(--delay);
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@keyframes water-flow-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+}
+
+@keyframes water-drop-flow {
+  0% {
+    left: 0;
+    opacity: 0;
+    transform: translateY(-50%) scale(0.5);
+  }
+  20% {
+    opacity: 0.8;
+    transform: translateY(-50%) scale(1);
+  }
+  80% {
+    opacity: 0.8;
+    transform: translateY(-50%) scale(1);
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+    transform: translateY(-50%) scale(0.5);
+  }
 }

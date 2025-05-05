@@ -9,7 +9,8 @@ const STORES = {
   FINALIZATION: 'finalization',
   SETTINGS: 'settings',
   AGENTS: 'agents',
-  TASKS: 'tasks'
+  TASKS: 'tasks',
+  EDGES: 'edges'
 }
 
 export interface Paper {
@@ -136,10 +137,13 @@ export interface FinalizationData {
 export interface Agent {
   id: string
   name: string
-  type: 'web_crawler' | 'data_collection' | 'content_generation' | 'quality_control' | 'expert_review' | 'formatting'
-  status: 'idle' | 'busy' | 'error'
-  lastActive: Date
+  type: 'research' | 'writing' | 'review'
+  paperId: string
+  status: 'idle' | 'running' | 'completed' | 'error'
+  capabilities: string[]
   settings: Record<string, any>
+  createdAt: Date
+  updatedAt: Date
 }
 
 export interface Task {
@@ -163,68 +167,192 @@ export interface DBSettings {
   agentSettings: Record<string, any>
 }
 
+export interface AgentEdge {
+  id: string;
+  source: string;
+  target: string;
+  type: 'sequential' | 'parallel';
+  label?: string;
+  paperId: string;
+}
+
 export class IndexedDBService {
-  private db: IDBDatabase | null = null
+  private db: IDBDatabase | null = null;
+  private dbPromise: Promise<IDBDatabase> | null = null;
 
-  async init() {
-    return new Promise<void>((resolve, reject) => {
-      const request = indexedDB.open(DB_NAME, DB_VERSION)
+  constructor() {
+    this.init();
+  }
 
-      request.onerror = () => reject(request.error)
-      request.onsuccess = () => {
-        this.db = request.result
-        resolve()
-      }
+  private async init(): Promise<IDBDatabase> {
+    if (this.db) return this.db;
+    if (this.dbPromise) return this.dbPromise;
 
-      request.onupgradeneeded = (event) => {
-        const db = (event.target as IDBOpenDBRequest).result
+    this.dbPromise = new Promise((resolve, reject) => {
+      // First get the current version
+      const checkRequest = indexedDB.open(DB_NAME);
+      checkRequest.onsuccess = () => {
+        const currentVersion = checkRequest.result.version;
+        checkRequest.result.close();
 
-        // Create object stores if they don't exist
-        if (!db.objectStoreNames.contains(STORES.PAPERS)) {
-          const papersStore = db.createObjectStore(STORES.PAPERS, { keyPath: 'id' })
-          papersStore.createIndex('title', 'title', { unique: false })
-          papersStore.createIndex('status', 'status', { unique: false })
-          papersStore.createIndex('phase', 'phase', { unique: false })
+        // Now open with the current version
+        const request = indexedDB.open(DB_NAME, currentVersion);
+
+        request.onerror = () => reject(request.error);
+        request.onsuccess = () => {
+          this.db = request.result;
+          resolve(this.db);
+        };
+
+        request.onupgradeneeded = (event) => {
+          const db = (event.target as IDBOpenDBRequest).result;
+          this.setupStores(db);
+        };
+      };
+      checkRequest.onerror = () => reject(checkRequest.error);
+    });
+
+    return this.dbPromise;
+  }
+
+  private setupStores(db: IDBDatabase): void {
+    // Create object stores if they don't exist
+    if (!db.objectStoreNames.contains(STORES.PAPERS)) {
+      const papersStore = db.createObjectStore(STORES.PAPERS, { keyPath: 'id' })
+      papersStore.createIndex('title', 'title', { unique: false })
+      papersStore.createIndex('status', 'status', { unique: false })
+      papersStore.createIndex('phase', 'phase', { unique: false })
+    }
+
+    if (!db.objectStoreNames.contains(STORES.RESEARCH)) {
+      const researchStore = db.createObjectStore(STORES.RESEARCH, { keyPath: 'id' })
+      researchStore.createIndex('paperId', 'paperId', { unique: true })
+    }
+
+    if (!db.objectStoreNames.contains(STORES.WRITING)) {
+      const writingStore = db.createObjectStore(STORES.WRITING, { keyPath: 'id' })
+      writingStore.createIndex('paperId', 'paperId', { unique: true })
+    }
+
+    if (!db.objectStoreNames.contains(STORES.REVIEW)) {
+      const reviewStore = db.createObjectStore(STORES.REVIEW, { keyPath: 'id' })
+      reviewStore.createIndex('paperId', 'paperId', { unique: true })
+    }
+
+    if (!db.objectStoreNames.contains(STORES.FINALIZATION)) {
+      const finalizationStore = db.createObjectStore(STORES.FINALIZATION, { keyPath: 'id' })
+      finalizationStore.createIndex('paperId', 'paperId', { unique: true })
+    }
+
+    if (!db.objectStoreNames.contains(STORES.AGENTS)) {
+      const agentsStore = db.createObjectStore(STORES.AGENTS, { keyPath: 'id' })
+      agentsStore.createIndex('type', 'type', { unique: false })
+      agentsStore.createIndex('status', 'status', { unique: false })
+      agentsStore.createIndex('paperId', 'paperId', { unique: false })
+    }
+
+    if (!db.objectStoreNames.contains(STORES.TASKS)) {
+      const tasksStore = db.createObjectStore(STORES.TASKS, { keyPath: 'id' })
+      tasksStore.createIndex('agentId', 'agentId', { unique: false })
+      tasksStore.createIndex('paperId', 'paperId', { unique: false })
+      tasksStore.createIndex('status', 'status', { unique: false })
+    }
+
+    if (!db.objectStoreNames.contains(STORES.SETTINGS)) {
+      db.createObjectStore(STORES.SETTINGS, { keyPath: 'id' })
+    }
+
+    // Add edges store if it doesn't exist
+    if (!db.objectStoreNames.contains(STORES.EDGES)) {
+      const edgesStore = db.createObjectStore(STORES.EDGES, { keyPath: 'id' })
+      edgesStore.createIndex('paperId', 'paperId', { unique: false })
+    }
+  }
+
+  private async getDB(): Promise<IDBDatabase> {
+    try {
+      return await this.init();
+    } catch (error) {
+      console.error('Error getting database:', error);
+      // If there's an error, try to reinitialize
+      this.db = null;
+      this.dbPromise = null;
+      return this.init();
+    }
+  }
+
+  private createStores(db: IDBDatabase) {
+    // Create object stores if they don't exist
+    if (!db.objectStoreNames.contains(STORES.PAPERS)) {
+      const papersStore = db.createObjectStore(STORES.PAPERS, { keyPath: 'id' })
+      papersStore.createIndex('title', 'title', { unique: false })
+      papersStore.createIndex('status', 'status', { unique: false })
+      papersStore.createIndex('phase', 'phase', { unique: false })
+    }
+
+    if (!db.objectStoreNames.contains(STORES.RESEARCH)) {
+      const researchStore = db.createObjectStore(STORES.RESEARCH, { keyPath: 'id' })
+      researchStore.createIndex('paperId', 'paperId', { unique: true })
+    }
+
+    if (!db.objectStoreNames.contains(STORES.WRITING)) {
+      const writingStore = db.createObjectStore(STORES.WRITING, { keyPath: 'id' })
+      writingStore.createIndex('paperId', 'paperId', { unique: true })
+    }
+
+    if (!db.objectStoreNames.contains(STORES.REVIEW)) {
+      const reviewStore = db.createObjectStore(STORES.REVIEW, { keyPath: 'id' })
+      reviewStore.createIndex('paperId', 'paperId', { unique: true })
+    }
+
+    if (!db.objectStoreNames.contains(STORES.FINALIZATION)) {
+      const finalizationStore = db.createObjectStore(STORES.FINALIZATION, { keyPath: 'id' })
+      finalizationStore.createIndex('paperId', 'paperId', { unique: true })
+    }
+
+    if (!db.objectStoreNames.contains(STORES.AGENTS)) {
+      const agentsStore = db.createObjectStore(STORES.AGENTS, { keyPath: 'id' })
+      agentsStore.createIndex('type', 'type', { unique: false })
+      agentsStore.createIndex('status', 'status', { unique: false })
+      agentsStore.createIndex('paperId', 'paperId', { unique: false })
+    }
+
+    if (!db.objectStoreNames.contains(STORES.TASKS)) {
+      const tasksStore = db.createObjectStore(STORES.TASKS, { keyPath: 'id' })
+      tasksStore.createIndex('agentId', 'agentId', { unique: false })
+      tasksStore.createIndex('paperId', 'paperId', { unique: false })
+      tasksStore.createIndex('status', 'status', { unique: false })
+    }
+
+    if (!db.objectStoreNames.contains(STORES.SETTINGS)) {
+      db.createObjectStore(STORES.SETTINGS, { keyPath: 'id' })
+    }
+  }
+
+  private async ensureStore(storeName: string): Promise<void> {
+    if (!this.db) {
+      await this.init()
+    }
+    
+    if (!this.db!.objectStoreNames.contains(storeName)) {
+      // Close the current database connection
+      this.db!.close()
+      
+      // Reopen with a higher version to trigger onupgradeneeded
+      const newVersion = this.db!.version + 1
+      await new Promise<void>((resolve, reject) => {
+        const request = indexedDB.open(DB_NAME, newVersion)
+        request.onerror = () => reject(request.error)
+        request.onsuccess = () => {
+          this.db = request.result
+          resolve()
         }
-
-        if (!db.objectStoreNames.contains(STORES.RESEARCH)) {
-          const researchStore = db.createObjectStore(STORES.RESEARCH, { keyPath: 'id' })
-          researchStore.createIndex('paperId', 'paperId', { unique: true })
+        request.onupgradeneeded = (event) => {
+          const db = (event.target as IDBOpenDBRequest).result
+          this.createStores(db)
         }
-
-        if (!db.objectStoreNames.contains(STORES.WRITING)) {
-          const writingStore = db.createObjectStore(STORES.WRITING, { keyPath: 'id' })
-          writingStore.createIndex('paperId', 'paperId', { unique: true })
-        }
-
-        if (!db.objectStoreNames.contains(STORES.REVIEW)) {
-          const reviewStore = db.createObjectStore(STORES.REVIEW, { keyPath: 'id' })
-          reviewStore.createIndex('paperId', 'paperId', { unique: true })
-        }
-
-        if (!db.objectStoreNames.contains(STORES.FINALIZATION)) {
-          const finalizationStore = db.createObjectStore(STORES.FINALIZATION, { keyPath: 'id' })
-          finalizationStore.createIndex('paperId', 'paperId', { unique: true })
-        }
-
-        if (!db.objectStoreNames.contains(STORES.AGENTS)) {
-          const agentsStore = db.createObjectStore(STORES.AGENTS, { keyPath: 'id' })
-          agentsStore.createIndex('type', 'type', { unique: false })
-          agentsStore.createIndex('status', 'status', { unique: false })
-        }
-
-        if (!db.objectStoreNames.contains(STORES.TASKS)) {
-          const tasksStore = db.createObjectStore(STORES.TASKS, { keyPath: 'id' })
-          tasksStore.createIndex('agentId', 'agentId', { unique: false })
-          tasksStore.createIndex('paperId', 'paperId', { unique: false })
-          tasksStore.createIndex('status', 'status', { unique: false })
-        }
-
-        if (!db.objectStoreNames.contains(STORES.SETTINGS)) {
-          db.createObjectStore(STORES.SETTINGS, { keyPath: 'id' })
-        }
-      }
-    })
+      })
+    }
   }
 
   // Paper operations
@@ -396,7 +524,11 @@ export class IndexedDBService {
     const db = await this.getDB()
     const tx = db.transaction(storeName, "readonly")
     const store = tx.objectStore(storeName)
-    return store.get(id)
+    return new Promise((resolve, reject) => {
+      const request = store.get(id)
+      request.onsuccess = () => resolve(request.result)
+      request.onerror = () => reject(request.error)
+    })
   }
 
   async update(storeName: string, data: any): Promise<void> {
@@ -407,6 +539,7 @@ export class IndexedDBService {
   }
 
   async add(storeName: string, data: any): Promise<void> {
+    await this.ensureStore(storeName)
     const db = await this.getDB()
     const tx = db.transaction(storeName, "readwrite")
     const store = tx.objectStore(storeName)
@@ -429,6 +562,7 @@ export class IndexedDBService {
     indexName?: string,
     value?: any
   ): Promise<T[]> {
+    await this.ensureStore(storeName)
     return new Promise((resolve, reject) => {
       const transaction = this.db!.transaction(storeName, 'readonly')
       const store = transaction.objectStore(storeName)
@@ -442,26 +576,98 @@ export class IndexedDBService {
   }
 
   async addAgent(agent: any): Promise<void> {
-    await this.add('agents', agent)
+    await this.add(STORES.AGENTS, agent)
   }
 
   async getAgents(): Promise<any[]> {
-    return await this.getAll('agents')
+    return await this.getAll(STORES.AGENTS)
   }
 
   async updateAgent(id: string, agent: any): Promise<void> {
-    await this.update('agents', { ...agent, id })
+    await this.update(STORES.AGENTS, { ...agent, id })
   }
 
   async deleteAgent(id: string): Promise<void> {
-    await this.delete('agents', id)
+    await this.delete(STORES.AGENTS, id)
   }
 
-  private async getDB(): Promise<IDBDatabase> {
-    if (!this.db) {
-      throw new Error('Database not initialized')
+  async getAgent(id: string): Promise<Agent | undefined> {
+    return this.get<Agent>(STORES.AGENTS, id)
+  }
+
+  async getEdges(paperId: string): Promise<AgentEdge[]> {
+    try {
+      const db = await this.getDB();
+      
+      // Ensure the edges store exists
+      if (!db.objectStoreNames.contains(STORES.EDGES)) {
+        // Close the current database connection
+        db.close();
+        
+        // Reopen with a higher version to trigger onupgradeneeded
+        const newVersion = db.version + 1;
+        const newDb = await new Promise<IDBDatabase>((resolve, reject) => {
+          const request = indexedDB.open(DB_NAME, newVersion);
+          request.onerror = () => reject(request.error);
+          request.onsuccess = () => resolve(request.result);
+          request.onupgradeneeded = (event) => {
+            const db = (event.target as IDBOpenDBRequest).result;
+            this.setupStores(db);
+          };
+        });
+
+        // Update the database reference
+        this.db = newDb;
+      }
+
+      // Get a fresh connection if needed
+      const currentDb = this.db || await this.getDB();
+      const tx = currentDb.transaction(STORES.EDGES, 'readonly');
+      const store = tx.objectStore(STORES.EDGES);
+      const index = store.index('paperId');
+      return new Promise((resolve, reject) => {
+        const request = index.getAll(paperId);
+        request.onsuccess = () => resolve(request.result as AgentEdge[]);
+        request.onerror = () => reject(request.error);
+      });
+    } catch (error) {
+      console.error('Error getting edges:', error);
+      return [];
     }
-    return this.db
+  }
+
+  async saveEdge(paperId: string, edge: AgentEdge): Promise<void> {
+    const db = await this.getDB();
+    const tx = db.transaction(STORES.EDGES, 'readwrite');
+    const store = tx.objectStore(STORES.EDGES);
+    return new Promise((resolve, reject) => {
+      const request = store.put({ ...edge, paperId });
+      request.onsuccess = () => resolve();
+      request.onerror = () => reject(request.error);
+    });
+  }
+
+  async deleteEdge(paperId: string, edgeId: string): Promise<void> {
+    const db = await this.getDB();
+    const tx = db.transaction(STORES.EDGES, 'readwrite');
+    const store = tx.objectStore(STORES.EDGES);
+    const index = store.index('paperId');
+    
+    return new Promise((resolve, reject) => {
+      const request = index.getAll(paperId);
+      request.onsuccess = () => {
+        const edges = request.result as AgentEdge[];
+        const edge = edges.find(e => e.id === edgeId);
+        if (edge) {
+          const deleteRequest = store.delete(edge.id);
+          deleteRequest.onsuccess = () => resolve();
+          deleteRequest.onerror = () => reject(deleteRequest.error);
+        } else {
+          resolve();
+        }
+      };
+      request.onerror = () => reject(request.error);
+    });
   }
 }
 
