@@ -12,4 +12,4 @@ setup(
         "python-dotenv",
     ],
     python_requires=">=3.8",
-) 
+)   

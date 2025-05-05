@@ -11,14 +11,18 @@ import { db, Paper, ResearchData } from "@/lib/indexeddb"
 import { use } from "react"
 import { AgentService, Agent } from '@/lib/agent-service'
 import { SearchService } from '@/lib/search-service'
+import AgentNetwork from "@/components/agent-network"
 
 interface ResearchPageProps {
   params: Promise<{
     id: string
   }>
+  searchParams: Promise<{
+    [key: string]: string | string[] | undefined
+  }>
 }
 
-export default function ResearchPage({ params }: ResearchPageProps) {
+export default function ResearchPage({ params, searchParams }: ResearchPageProps) {
   const router = useRouter()
   const [paper, setPaper] = useState<Paper | null>(null)
   const [researchData, setResearchData] = useState<ResearchData | null>(null)
@@ -38,6 +42,7 @@ export default function ResearchPage({ params }: ResearchPageProps) {
   const [selectedArxivId, setSelectedArxivId] = useState('')
   const [searchQuery, setSearchQuery] = useState("")
   const [arxivResults, setArxivResults] = useState<any[]>([])
+  const [isAgentRunning, setIsAgentRunning] = useState<Record<string, boolean>>({})
 
   const resolvedParams = use(params)
   const paperId = resolvedParams.id
@@ -61,7 +66,9 @@ export default function ResearchPage({ params }: ResearchPageProps) {
       setIsLoading(true)
       setError(null)
       
-      await db.init()
+      // Wait for database to be ready
+      await new Promise(resolve => setTimeout(resolve, 100))
+      
       const [paperData, researchData] = await Promise.all([
         db.getPaper(paperId),
         db.getResearchData(paperId)
@@ -345,6 +352,26 @@ export default function ResearchPage({ params }: ResearchPageProps) {
     }
   }
 
+  const handleStartAgent = async (agentId: string) => {
+    try {
+      setIsAgentRunning(prev => ({ ...prev, [agentId]: true }))
+      const context = {
+        paperId,
+        paper,
+        researchData,
+        searchResults,
+        arxivResults
+      }
+      await agentService.startAgent(agentId, context)
+      await loadAgents()
+    } catch (error) {
+      console.error('Error starting agent:', error)
+      setError(error instanceof Error ? error.message : 'Failed to start agent')
+    } finally {
+      setIsAgentRunning(prev => ({ ...prev, [agentId]: false }))
+    }
+  }
+
   if (isLoading) {
     return (
       <div className="flex min-h-screen items-center justify-center">
@@ -598,31 +625,15 @@ export default function ResearchPage({ params }: ResearchPageProps) {
                   Add Agent
                 </Button>
               </div>
-              <div className="space-y-2">
-                {agents.map((agent) => (
-                  <div
-                    key={agent.id}
-                    className="flex items-center justify-between rounded-lg border border-gray-800 bg-gray-800/50 p-4"
-                  >
-                    <div>
-                      <h3 className="font-medium text-white">{agent.name}</h3>
-                      <p className="text-sm text-gray-400">
-                        Type: {agent.type} | Status: {agent.status}
-                      </p>
-                      <p className="text-sm text-gray-400">
-                        Capabilities: {agent.capabilities.join(', ')}
-                      </p>
-                    </div>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={() => handleDeleteAgent(agent.id)}
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
-                  </div>
-                ))}
-              </div>
+              
+              <AgentNetwork
+                paperId={paperId}
+                agents={agents}
+                onStartAgent={handleStartAgent}
+                onDeleteAgent={handleDeleteAgent}
+                isAgentRunning={isAgentRunning}
+                onCreateAgent={handleCreateAgent}
+              />
             </div>
           )}
         </div>
